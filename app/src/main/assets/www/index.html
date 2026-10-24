@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d9488" />
+  <title>لندری من</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><circle cx="12" cy="13" r="3"/><path d="M12 17v.01"/><path d="M7 7h.01"/><path d="M17 7h.01"/></svg>
+        </div>
+        <div class="brand-text">
+          <h1>لندری من</h1>
+          <p id="header-date">&nbsp;</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="btn-backup" aria-label="پشتیبان‌گیری و بازیابی">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+        </button>
+        <button class="icon-btn" id="btn-bell" aria-label="یادآوری‌های امروز">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/><path d="M4 2 2 4"/><path d="m22 4-2-2"/></svg>
+          <span id="bell-badge" class="bell-badge hidden"></span>
+        </button>
+        <button class="btn btn-primary btn-sm" id="btn-new-order">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+          <span>سفارش</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="stats" id="stats" aria-label="خلاصه وضعیت"></section>
+    <button id="overdue-banner" class="overdue-banner hidden"></button>
+
+    <nav class="tabs" id="tabs" role="tablist">
+      <button class="tab active" data-tab="today" role="tab" aria-selected="true">امروز<span id="tab-badge" class="tab-badge hidden"></span></button>
+      <button class="tab" data-tab="orders" role="tab" aria-selected="false">سفارش‌ها</button>
+      <button class="tab" data-tab="reminders" role="tab" aria-selected="false">یادآوری‌ها</button>
+    </nav>
+
+    <section id="tab-today" class="tab-panel active" role="tabpanel"></section>
+
+    <section id="tab-orders" class="tab-panel" role="tabpanel">
+      <div class="toolbar">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" id="search-input" placeholder="جستجوی نام، شماره یا شرح سفارش..." aria-label="جستجوی سفارش" />
+        </div>
+        <button class="btn btn-primary" id="btn-new-order-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+          جدید
+        </button>
+      </div>
+      <div class="chips" id="status-chips" role="group" aria-label="فیلتر وضعیت"></div>
+      <div id="orders-list" class="stack"></div>
+    </section>
+
+    <section id="tab-reminders" class="tab-panel" role="tabpanel"></section>
+  </main>
+
+  <button id="fab" class="fab" aria-label="افزودن">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+  </button>
+
+  <div id="modal-root" class="modal-root hidden" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close="1"></div>
+    <div class="modal-card" id="modal-card"></div>
+  </div>
+
+  <div id="toast-root" class="toast-root" aria-live="polite"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
